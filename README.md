@@ -1,5 +1,7 @@
 # Rabbitmq Three Node Cluster
-This Vagrant box configures three nodes for use with Rabbitmq
+This Vagrant box configures three nodes for use with Rabbitmq built upon CentOS from the following Vagrant image:
+https://atlas.hashicorp.com/landregistry/boxes/centos
+
 ## Prerequisite
 * Virtualbox
 * Vagrant
@@ -33,7 +35,6 @@ Besure to copy over the .erlang.cookie to the relevant directory
 I used the following as resources:
 
 https://www.rabbitmq.com/clustering.html
-
 
 
 

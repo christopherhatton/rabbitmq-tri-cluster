@@ -6,14 +6,20 @@ if [[ $(id -u) != '0' ]]; then
 fi
 
 cat << HOSTS_FILE >> /etc/hosts
-192.168.33.10 node1 A
-192.168.33.20 node2 B
-192.168.33.30 node3 C
+192.168.33.11 node1 A
+192.168.33.22 node2 B
+192.168.33.33 node3 C
 192.168.33.100 failover_ip Z
 HOSTS_FILE
 
 yum -q -y update
 yum -q -y install rabbitmq-server.noarch
+
+#Copy over the erland.cookie
+cp  /vagrant/ /var/lib/rabbitmq/.erlang.cookie
+systemctl start rabbitmq-server
+rabbitmqctl cluster_status
+
 # yum install rabbitmq
 
 # edit the config files for rabbitmq
