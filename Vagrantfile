@@ -28,14 +28,14 @@ Vagrant.configure(2) do | global |
       :role => 'slave',
       :id => 3
     },
-    {
-      :name => 'controller',
-      :addr => '192.168.33.40',
-      :role => 'controller',
-      :id => 4
-    }
+#    {
+#      :name => 'controller',
+#      :addr => '192.168.33.40',
+#      :role => 'controller',
+#      :id => 4
+#    }
   ]
-  
+
   nodes.each_with_index do | node, i |
     global.vm.define node[:name] do | config |
       config.vm.hostname = node[:name]
