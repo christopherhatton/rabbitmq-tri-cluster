@@ -16,7 +16,7 @@ yum -q -y update
 yum -q -y install rabbitmq-server.noarch
 
 #Copy over the erland.cookie
-cp  /vagrant/ /var/lib/rabbitmq/.erlang.cookie
+cp  /vagrant/.erlang.cookie /var/lib/rabbitmq/.erlang.cookie
 systemctl start rabbitmq-server
 rabbitmqctl cluster_status
 
