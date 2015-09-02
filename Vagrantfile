@@ -13,19 +13,19 @@ Vagrant.configure(2) do | global |
     {
       :name => 'A',
       :addr => '192.168.33.11',
-      :role => 'master',
+      :role => 'node1',
       :id => 1
     },
     {
       :name => 'B',
       :addr => '192.168.33.22',
-      :role => 'slave',
+      :role => 'node2',
       :id => 2
     },
     {
       :name => 'C',
       :addr => '192.168.33.33',
-      :role => 'slave',
+      :role => 'node3',
       :id => 3
     },
 #    {
