@@ -19,6 +19,8 @@ yum -q -y install rabbitmq-server.noarch
 cp  /vagrant/.erlang.cookie /var/lib/rabbitmq/.erlang.cookie
 chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
 chmod 600 /var/lib/rabbitmq/.erlang.cookie
+systemctl start rabbitmq-server
+rabbitmqctl cluster_status
 
 
 if [ "$1" = "node1" ]; then
