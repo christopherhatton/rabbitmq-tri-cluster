@@ -17,6 +17,8 @@ yum -q -y install rabbitmq-server.noarch
 
 #Copy over the erland.cookie
 cp  /vagrant/.erlang.cookie /var/lib/rabbitmq/.erlang.cookie
+chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
+chmod 600 /var/lib/rabbitmq/.erlang.cookie
 
 
 if [ "$1" = "node1" ]; then
