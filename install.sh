@@ -23,20 +23,19 @@ systemctl start rabbitmq-server
 rabbitmqctl cluster_status
 
 
-if [ "$1" = "node1" ]; then
-  systemctl start rabbitmq-server
-  rabbitmqctl cluster_status
+if [ "$2" = "node2" ]; then
+  rabbitmqctl stop_app
+  rabbitmqctl join_cluster rabbit@A
+  rabbitmqctl start_app
 fi
 
-if [ "$1" = "node2" ]; then
-  systemctl start rabbitmq-server
-  rabbitmqctl cluster_status
+if [ "$2" = "node3" ]; then
+  rabbitmqctl stop_app
+  rabbitmqctl join_cluster rabbit@A
+  rabbitmqctl start_app
 fi
 
-if [ "$1" = "node3" ]; then
-  systemctl start rabbitmq-server
-  rabbitmqctl cluster_status
-fi
+
 # yum install rabbitmq
 
 # edit the config files for rabbitmq
