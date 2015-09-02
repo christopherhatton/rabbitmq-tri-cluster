@@ -16,17 +16,22 @@ yum -q -y update
 yum -q -y install rabbitmq-server.noarch
 
 #Copy over the erland.cookie
-cp  /vagrant/.erlang.cookie /var/lib/rabbitmq/.erlang.cookie
-chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
-chmod 600 /var/lib/rabbitmq/.erlang.cookie
-systemctl start rabbitmq-server
-rabbitmqctl cluster_status
 
+
+if [ "$2" = "node1" ]; then
+  systemctl start rabbitmq-server
+  cp /var/lib/rabbitmq/.erlang.cookie /vagrant/.erlang.cookie
+fi
 
 if [ "$2" = "node2" ]; then
+  systemctl start rabbitmq-server
   rabbitmqctl stop_app
   rabbitmqctl join_cluster rabbit@A
   rabbitmqctl start_app
+  cp  /vagrant/.erlang.cookie /var/lib/rabbitmq/.erlang.cookie
+  chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
+  chmod 600 /var/lib/rabbitmq/.erlang.cookie
+  rabbitmqctl cluster_status
 fi
 
 if [ "$2" = "node3" ]; then
