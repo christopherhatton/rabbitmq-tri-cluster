@@ -14,7 +14,7 @@ On starting the environment the `install.sh` script will configure the environme
 - install rabbitmq
 - copy over the .erlang.cookie (from node one via the vagrant folder to node two then three)
 - change the owner of the cookie
-- start the rabbitmq-server
+- start the rabbitmq-server `systemctl start rabbitmq-server`
 - stop the RabbitMQ application i.e. `rabbitmqctl stop_app`
 - join the node to the cluster `rabbitmqctl join_cluster rabbit@a`
 
