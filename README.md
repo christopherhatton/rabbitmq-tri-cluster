@@ -12,7 +12,11 @@ https://atlas.hashicorp.com/landregistry/boxes/centos
 On starting the environment the `install.sh` script will configure the environment:
 - run yum update
 - install rabbitmq
-- copy over the .erlang.cookie
+- copy over the .erlang.cookie (from node one via the vagrant folder to node two then three)
+- change the owner of the cookie
+- start the rabbitmq-server
+- stop the RabbitMQ application i.e. `rabbitmqctl stop_app`
+- join the node to the cluster `rabbitmqctl join_cluster rabbit@a`
 
 
 ## Failover Tutorial
