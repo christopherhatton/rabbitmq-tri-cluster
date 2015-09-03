@@ -24,7 +24,7 @@ if [ "$2" = "node1" ]; then
   rabbitmqctl cluster_status
 fi
 
-if [ "$2" = "node20" ]; then
+if [ "$2" = "node2" ]; then
   cp  /vagrant/erland.cookie /var/lib/rabbitmq/.erlang.cookie
   chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
   systemctl start rabbitmq-server
@@ -32,7 +32,7 @@ if [ "$2" = "node20" ]; then
   rabbitmqctl join_cluster rabbit@a
 fi
 
-if [ "$2" = "node30" ]; then
+if [ "$2" = "node3" ]; then
   cp  /vagrant/erland.cookie /var/lib/rabbitmq/.erlang.cookie
   chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
   systemctl start rabbitmq-server
