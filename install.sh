@@ -18,12 +18,13 @@ yum -q -y install rabbitmq-server.noarch
 #Copy over the erland.cookie
 
 
-if [ "$2" = "node1" ]; then
+if [ "$2" = "node10" ]; then
   systemctl start rabbitmq-server
   cp /var/lib/rabbitmq/.erlang.cookie /vagrant/.erlang.cookie
+  rabbitmqctl cluster_status
 fi
 
-if [ "$2" = "node2" ]; then
+if [ "$2" = "node20" ]; then
   systemctl start rabbitmq-server
   rabbitmqctl stop_app
   rabbitmqctl join_cluster rabbit@A
@@ -34,7 +35,7 @@ if [ "$2" = "node2" ]; then
   rabbitmqctl cluster_status
 fi
 
-if [ "$2" = "node3" ]; then
+if [ "$2" = "node30" ]; then
   rabbitmqctl stop_app
   rabbitmqctl join_cluster rabbit@A
   rabbitmqctl start_app
