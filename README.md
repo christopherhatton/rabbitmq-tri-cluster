@@ -28,7 +28,6 @@ To access the second node: `vagrant ssh B`
 
 To access the third node: `vagrant ssh C`
 
-Besure to copy over the .erlang.cookie to the relevant directory
 
 ## Further Information
 
